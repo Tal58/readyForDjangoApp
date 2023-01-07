@@ -41,7 +41,10 @@ INSTALLED_APPS = [
     #my app
     'rest_framework',
     'drf_yasg',
+    "users",
     # 'debug_toolbar',
+    "rest_framework.authtoken",
+    "dj_rest_auth",
 
 ]
 
@@ -195,5 +198,15 @@ LOGGING = {
     },
 }
 # handlers iki farklı handler işlemi yapan loji kuran 
-console ve file için i,ki farklı handler kullanılmış
-consolda stream handler 
+# console ve file için i,ki farklı handler kullanılmış
+# consolda stream handler 
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+}
+
+REST_AUTH_SERIALIZERS ={
+    "TOKEN_SERIALIZER": "users.serializers.CustomTokenSerializer",
+}
